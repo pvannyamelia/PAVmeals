@@ -12,6 +12,7 @@ android {
         applicationId "com.ciputra.pavmeals"
         minSdkVersion 21
         targetSdkVersion 30
+        compileSdkVersion 30
         versionCode 1
         versionName "1.0"
 
