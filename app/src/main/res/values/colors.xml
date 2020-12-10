@@ -7,5 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="verrel">#F00100</color>
+
+<!--    PAV Themes-->
+    <color name="light_green">#B8D943</color>
+    <color name="deep_green">#377327</color>
+    <color name="green_yellow">#B0BF3B</color>
+    <color name="dark_red">#BF452A</color>
+    <color name="primary_red">#D93E30</color>
+    <color name="primary_grey">#403F3E</color>
 </resources>
