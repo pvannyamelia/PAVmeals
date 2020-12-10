@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".android.MainActivity"
+    tools:context=".android.LoginActivity"
 
     >
 
@@ -37,10 +37,10 @@
         android:layout_height="wrap_content"
         android:text="testaskkkkkkkkkkkkkn"
         android:layout_marginTop="50dp"
-        style="@style/textdefault"
+        style="@style/textdefault"/>
 <!--        android:textColor="@color/verrel"-->
 <!--        android:background="@color/black"-->
-        />
+
     <TextView
         android:id="@+id/tvresult"
         android:layout_width="match_parent"

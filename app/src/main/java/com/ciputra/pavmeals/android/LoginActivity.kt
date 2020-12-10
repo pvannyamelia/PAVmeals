@@ -6,15 +6,15 @@ import android.util.Log
 import com.ciputra.pavmeals.R
 import com.ciputra.pavmeals.api.ApiService
 import com.ciputra.pavmeals.api.MealsLayer1
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
 
         Api.service<ApiService>()
             .getRandomMeals()
