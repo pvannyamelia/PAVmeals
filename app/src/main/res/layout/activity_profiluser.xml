@@ -1,6 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tv_provileuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PROFILE USER"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:layout_marginTop="30dp"
+        />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="30dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:layout_marginTop="242dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="15dp"
+        />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="135dp"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="username"
+        android:layout_marginTop="282dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="15dp"
+        />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="135dp"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Password"
+        android:layout_marginTop="322dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="15dp"
+        />
+    <EditText
+        android:id="@+id/editTextTextPersonName312"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:layout_marginTop="320dp"
+        android:layout_marginLeft="135dp"
+        android:textSize="15dp"/>
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Password"
+        android:layout_marginTop="362dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="15dp"
+        />
+    <EditText
+        android:id="@+id/editTextTextPersonName3122"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:layout_marginTop="360dp"
+        android:layout_marginLeft="135dp"
+        android:textSize="15dp"/>
+
+
+
 
 </RelativeLayout>
