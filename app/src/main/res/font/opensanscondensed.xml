@@ -6,10 +6,10 @@
         android:fontStyle="normal"/>
     <font
         android:font="@font/opensanscondensed_light"
-        android:fontWeight="300"
+        android:fontWeight="400"
         android:fontStyle="normal"/>
     <font
         android:font="@font/opensanscondensed_lightitalic"
         android:fontStyle="italic"
-        android:fontWeight="300"/>
+        android:fontWeight="400"/>
 </font-family>

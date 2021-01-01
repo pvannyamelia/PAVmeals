@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="120dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
@@ -18,7 +18,8 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:textSize="16sp"
+        android:textAlignment="gravity"
+        android:textSize="12sp"
         android:textStyle="bold"
         tools:text="@string/ingredient"
         android:layout_alignBottom="@+id/iv_cat"/>
