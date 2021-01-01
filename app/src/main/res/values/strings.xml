@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">PAVmeals</string>
     <string name="app_name1">PAVmeals</string>
+    <string name="ingredient">Ingredient</string>
     <!--    <![CDATA[Akun <b>MamiPAY</b> telah selesai diverifikasi oleh tim Mamikos.<br/>Selamat akun anda diterima, silahkan masuk.]]></string>-->
     <!--    Html.fromHtml-->
     <!--    Html.fromHtml(R.string.msg_verof_acc_approve)
