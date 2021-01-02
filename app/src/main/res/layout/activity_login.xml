@@ -17,7 +17,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        style="@style/textdefault"
         />
 
     <EditText
@@ -36,10 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="testaskkkkkkkkkkkkkn"
-        android:layout_marginTop="50dp"
-        style="@style/textdefault"/>
-<!--        android:textColor="@color/verrel"-->
-<!--        android:background="@color/black"-->
+        android:layout_marginTop="50dp"/>
 
     <TextView
         android:id="@+id/tvresult"

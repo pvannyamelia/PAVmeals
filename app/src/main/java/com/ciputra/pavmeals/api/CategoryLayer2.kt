@@ -4,14 +4,14 @@ import com.google.gson.annotations.SerializedName
 
 class CategoryLayer2 {
     @SerializedName("idCategory")
-    var idCategory: String? = null
+    var idCategory: String = ""
 
     @SerializedName("strCategory")
-    var strCategory: String? = null
+    var strCategory: String = ""
 
     @SerializedName("strCategoryThumb")
-    var strCategoryThumb: String? = null
+    var strCategoryThumb: String = ""
 
     @SerializedName("strCategoryDescription")
-    var strCategoryDescription: String? = null
+    var strCategoryDescription: String = ""
 }
