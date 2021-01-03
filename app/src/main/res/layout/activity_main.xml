@@ -5,7 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".android.MainActivity"
+    tools:context=".android.MainActivity">
+<ScrollView
+    android:id="@+id/sv_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginHorizontal="10dp">
 
     <RelativeLayout
@@ -14,62 +18,87 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="30dp" >
 
-        <ImageView
-            android:id="@+id/iv_pickThumb"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:paddingTop="120dp" />
-
         <TextView
             android:id="@+id/tv_greetings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             style="@style/tpg_h1"
-            android:text="Morning, Priscilla"/>
-    </RelativeLayout>
+            android:text="@string/greetings_here"/>
 
-    <TextView
-        android:id="@+id/tv_category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/tpg_h4"
-        android:text="@string/category"
-        />
+        <ImageView
+            android:id="@+id/iv_pickThumb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="15dp"
+            android:layout_below="@id/tv_greetings"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_category"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginTop="5dp"
-        tools:listitem="@layout/item_row_category"/>
+        <TextView
+            android:id="@+id/tv_titlePick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            style="@style/tpg_h5"
+            android:layout_marginVertical="5dp"
+            android:layout_below="@id/iv_pickThumb"/>
 
-    <TextView
-        android:id="@+id/tv_area"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/tpg_h4"
-        android:text="@string/area"
-        />
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/tpg_h4"
+            android:text="@string/category"
+            android:layout_marginVertical="5dp"
+            android:layout_below="@id/tv_titlePick"/>
+
         <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_area"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginTop="5dp"
-        tools:listitem="@layout/item_row_area"/>
+            android:id="@+id/rv_category"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginVertical="15dp"
+            android:layout_below="@id/tv_category"
+            tools:listitem="@layout/item_row_category"/>
 
-    <TextView
-        android:id="@+id/tv_ingredient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/tpg_h4"
-        android:text="@string/ingredient"
-        />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_ingredient"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginTop="5dp"
-        tools:listitem="@layout/item_row_ingredient"/>
+        <TextView
+            android:id="@+id/tv_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/tpg_h4"
+            android:text="@string/area"
+            android:layout_marginVertical="5dp"
+            android:layout_below="@id/rv_category"/>
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cg_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:layout_below="@id/tv_area"
+            app:singleSelection="true">
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tv_ingredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/tpg_h4"
+            android:layout_marginVertical="5dp"
+            android:layout_below="@id/cg_area"
+            android:text="@string/ingredient" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cg_ingredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:layout_below="@id/tv_ingredient"
+            android:paddingBottom="30dp"
+            app:singleSelection="true">
+
+        </com.google.android.material.chip.ChipGroup>
+    </RelativeLayout>
+</ScrollView>
 </LinearLayout>

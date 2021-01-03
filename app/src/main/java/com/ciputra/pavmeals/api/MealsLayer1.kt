@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 class MealsLayer1 {
     @SerializedName("meals")
-    var meals: List<MealsLayer2>? = null
+    var meals: ArrayList<MealsLayer2>? = null
 }

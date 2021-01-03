@@ -12,9 +12,17 @@ interface ApiService {
     ): Call<MealsLayer1>
 
     @GET("list.php")
-    fun getList(
-        @Query("c") category: String = "list",
-        @Query("a") area: String = "list",
+    fun getAreaList(
+        @Query("a") area: String = "list"
+    ): Call<MealsLayer1>
+
+    @GET("list.php")
+    fun getCatList(
+        @Query("c") category: String = "list"
+    ): Call<MealsLayer1>
+
+    @GET("list.php")
+    fun getIngList(
         @Query("i") ingredients: String = "list"
     ): Call<MealsLayer1>
 

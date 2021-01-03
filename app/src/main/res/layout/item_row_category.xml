@@ -17,13 +17,13 @@
         <ImageView
             android:id="@+id/iv_cat"
             android:layout_width="match_parent"
-            android:layout_height="100dp"/>
+            android:layout_height="120dp"/>
 
         <TextView
             android:id="@+id/tv_cat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="105dp"
+            android:layout_marginTop="110dp"
             android:textAlignment="center"
             style="@style/tpg_h5"
             tools:text="@string/ingredient"/>
