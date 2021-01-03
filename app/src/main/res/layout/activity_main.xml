@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context=".android.MainActivity">
+    android:orientation="vertical"
+    tools:context=".android.MainActivity"
+    android:layout_marginHorizontal="10dp">
 
     <RelativeLayout
         android:id="@+id/rl_mealpick"
@@ -29,21 +30,46 @@
             android:text="Morning, Priscilla"/>
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/tv_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/tpg_h4"
+        android:text="@string/category"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_category"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="160dp"
+        android:layout_marginTop="5dp"
         tools:listitem="@layout/item_row_category"/>
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/rv_area"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        tools:listitem="@layout/item_row_category"/>-->
+    <TextView
+        android:id="@+id/tv_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/tpg_h4"
+        android:text="@string/area"
+        />
+        <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_area"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="5dp"
+        tools:listitem="@layout/item_row_area"/>
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/rv_ingredient"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        tools:listitem="@layout/item_row_category"/>-->
+    <TextView
+        android:id="@+id/tv_ingredient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/tpg_h4"
+        android:text="@string/ingredient"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ingredient"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="5dp"
+        tools:listitem="@layout/item_row_ingredient"/>
 </LinearLayout>

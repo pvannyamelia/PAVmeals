@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 class CategoryLayer1 {
     @SerializedName("categories")
-    var categories = ArrayList<CategoryLayer2>()
+    var categories : ArrayList<CategoryLayer2> = arrayListOf()
 }
