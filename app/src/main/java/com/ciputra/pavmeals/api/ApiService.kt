@@ -17,15 +17,35 @@ interface ApiService {
     ): Call<MealsLayer1>
 
     @GET("list.php")
-    fun getCatList(
-        @Query("c") category: String = "list"
+    fun getCtgList(
+            @Query("c") category: String = ""
     ): Call<MealsLayer1>
 
     @GET("list.php")
     fun getIngList(
-        @Query("i") ingredients: String = "list"
+            @Query("i") ingredients: String = ""
     ): Call<MealsLayer1>
 
     @GET("categories.php")
     fun getCategory(): Call<CategoryLayer1>
+
+    @GET("filter.php")
+    fun filterByCategory(
+        @Query("c") category: String = ""
+    ): Call<MealsLayer1>
+
+    @GET("filter.php")
+    fun filterByArea(
+            @Query("a") area: String = ""
+    ): Call<MealsLayer1>
+
+    @GET("filter.php")
+    fun filterByIng(
+            @Query("i") ingredients: String = ""
+    ): Call<MealsLayer1>
+
+    @GET("search.php")
+    fun getSearch(
+        @Query("s") keyword: String?=""
+    ): Call<MealsLayer1>
 }

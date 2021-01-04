@@ -1,9 +1,14 @@
 package com.ciputra.pavmeals.android
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -21,22 +26,40 @@ import retrofit2.Callback
 import retrofit2.Response
 import com.ciputra.pavmeals.api.CategoryLayer1 as CategoryLayer1
 
-class MainActivity : AppCompatActivity() {
-    var index: Int = 0
+class MainActivity : AppCompatActivity(){
+    var catResponse: ArrayList<CategoryLayer2> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
 
+        bottom_nav.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.ic_profile -> {
+                    val moveProfil = Intent(this@MainActivity, ProfileActivity::class.java)
+                    startActivity(moveProfil)
+                }
+                R.id.ic_explore -> {
+                    val moveExplore = Intent(this@MainActivity, ExploreActivity::class.java)
+                    startActivity(moveExplore)
+                }
+            }
+            true
+        }
+
         Api.service<ApiService>()
             .getRandomMeals()
             .enqueue(object : Callback<MealsLayer1> {
                 override fun onResponse(call: Call<MealsLayer1>, response: Response<MealsLayer1>) {
                     var randResponse: ArrayList<MealsLayer2> = response.body()!!.meals!!
-                    tv_titlePick.text = randResponse.get(0).strMeal
+                    tv_mealsotd.text = "Meal of The Day: "+randResponse.get(0).strMeal
+                    tv_titlePick.text = "Origin: "+randResponse.get(0).strArea
+                    tv_tag.text = randResponse.get(0).strCategory
+                    tv_instruction.text = randResponse.get(0).strInstructions
+                    tv_source.text = "Source: "+randResponse.get(0).strSource
+                    tv_youtube.text = "Youtube: "+randResponse.get(0).strYoutube
                     showglide(randResponse.get(0).strMealThumb)
-
                 }
 
                 override fun onFailure(call: Call<MealsLayer1>, t: Throwable) {
@@ -48,68 +71,38 @@ class MainActivity : AppCompatActivity() {
                .getCategory()
                .enqueue(object : Callback<CategoryLayer1> {
                    override fun onResponse(call: Call<CategoryLayer1>, response: Response<CategoryLayer1>) {
-                       var catResponse: ArrayList<CategoryLayer2> = response.body()!!.categories
-                       showCategoryRecycler(catResponse)
+                       catResponse = response.body()!!.categories
+                       showCategoryRecycler()
                    }
 
                    override fun onFailure(call: Call<CategoryLayer1>, t: Throwable) {
                        Log.e("ERROR", t.message.orEmpty())
                    }
                })
-
-        Api.service<ApiService>()
-            .getAreaList()
-            .enqueue(object : Callback<MealsLayer1> {
-                override fun onResponse(call: Call<MealsLayer1>, response: Response<MealsLayer1>) {
-                    var areaResponse: ArrayList<MealsLayer2> = response.body()?.meals!!
-                    for(i in 1..10){
-                        index = (0..areaResponse.size-1).random()
-                        val chip = Chip(cg_area.context)
-                        chip.text = areaResponse.get(index).strArea
-
-                            // necessary to get single selection working
-                        chip.isClickable = true
-                        chip.isCheckable = true
-                        cg_area.addView(chip)
-                    }
-                }
-
-                override fun onFailure(call: Call<MealsLayer1>, t: Throwable) {
-                    Log.e("ERROR", t.message.orEmpty())
-                }
-            })
-
-        Api.service<ApiService>()
-            .getIngList()
-            .enqueue(object : Callback<MealsLayer1> {
-                override fun onResponse(call: Call<MealsLayer1>, response: Response<MealsLayer1>) {
-                    var ingResponse: ArrayList<MealsLayer2> = response.body()?.meals!!
-                    for(i in 1..10){
-                        index = (0..ingResponse.size-1).random()
-                        val chip = Chip(cg_ingredient.context)
-                        chip.text = ingResponse.get(index).strIngredient
-                        chip.isClickable = true
-                        chip.isCheckable = true
-                        cg_ingredient.addView(chip)
-                    }
-                }
-
-                override fun onFailure(call: Call<MealsLayer1>, t: Throwable) {
-                    Log.e("ERROR", t.message.orEmpty())
-                }
-
-            })
-    }
-
-    private fun showCategoryRecycler(catResponse: ArrayList<CategoryLayer2>) {
-        rv_category.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        val categoryAdapter = CategoryAdapter(catResponse)
-        rv_category.adapter = categoryAdapter
     }
 
     private fun showglide(url: String?){
         Glide.with(this)
             .load(url)
             .into(iv_pickThumb)
+    }
+
+    private fun showCategoryRecycler() {
+        rv_category.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        val categoryAdapter = CategoryAdapter(catResponse)
+        rv_category.adapter = categoryAdapter
+
+        // On Click Listener
+        categoryAdapter.setOnItemClickCallback(object : CategoryAdapter.OnItemClickCallback{
+            override fun onItemClicked(data: CategoryLayer2) {
+                showChosenCtg(data)
+            }
+        })
+    }
+
+    private fun showChosenCtg(ctg: CategoryLayer2){
+        val moveIntent = Intent(this@MainActivity, ResultActivity::class.java)
+        moveIntent.putExtra(ResultActivity.EXTRA_CTG, ctg.strCategory)
+        startActivity(moveIntent)
     }
 }

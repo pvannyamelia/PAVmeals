@@ -25,6 +25,9 @@ class MealsLayer2 {
     @SerializedName("strMealThumb")
     var strMealThumb: String? = null
 
+    @SerializedName("strTags")
+    var strTags: String? = null
+
     @SerializedName("strYoutube")
     var strYoutube: String? = null
 

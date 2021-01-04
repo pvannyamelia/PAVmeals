@@ -15,6 +15,12 @@ import com.ciputra.pavmeals.api.CategoryLayer1
 import com.ciputra.pavmeals.api.CategoryLayer2
 
 class CategoryAdapter(private val listCategory: ArrayList<CategoryLayer2>) : RecyclerView.Adapter<CategoryAdapter.ListViewHolder>() {
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tv_cat: TextView = itemView.findViewById(R.id.tv_cat)
         var iv_cat: ImageView = itemView.findViewById(R.id.iv_cat)
@@ -37,9 +43,14 @@ class CategoryAdapter(private val listCategory: ArrayList<CategoryLayer2>) : Rec
             .into(holder.iv_cat)
 
         holder.tv_cat.text = category.strCategory
+        holder.itemView.setOnClickListener{onItemClickCallback.onItemClicked(listCategory[holder.adapterPosition])}
     }
 
     override fun getItemCount(): Int {
         return listCategory?.size
+    }
+
+    interface OnItemClickCallback{
+        fun onItemClicked(data: CategoryLayer2)
     }
 }

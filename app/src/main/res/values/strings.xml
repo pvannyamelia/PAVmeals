@@ -1,13 +1,11 @@
 <resources>
-    <string name="app_name">PAVmeals</string>
-    <string name="app_name1">PAVmeals</string>
-    <string name="ingredient">Top Ingredients for Today</string>
+    <string name="app_name">PAVmeals</string>N
+    <string name="ingredient">Filter by Ingredient</string>
     <string name="category">Category</string>
-    <string name="area">Today\'s Area Picks</string>
+    <string name="area">Filter by Area</string>
     <string name="greetings_here">Greetings here</string>
-    <!--    <![CDATA[Akun <b>MamiPAY</b> telah selesai diverifikasi oleh tim Mamikos.<br/>Selamat akun anda diterima, silahkan masuk.]]></string>-->
-    <!--    Html.fromHtml-->
-    <!--    Html.fromHtml(R.string.msg_verof_acc_approve)
+    <string name="result">Results Here</string>
+    <string name="meal_of_the_day">Meal of The Day</string>
 Spannable
 -->
 
