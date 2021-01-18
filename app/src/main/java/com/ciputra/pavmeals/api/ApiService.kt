@@ -6,10 +6,7 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("random.php")
-    fun getRandomMeals(
-        // @Query("month") month: Int,
-//        @Query("year") year: Int
-    ): Call<MealsLayer1>
+    fun getRandomMeals(): Call<MealsLayer1>
 
     @GET("list.php")
     fun getAreaList(

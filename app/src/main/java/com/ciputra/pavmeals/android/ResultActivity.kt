@@ -1,20 +1,21 @@
 package com.ciputra.pavmeals.android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView.OnEditorActionListener
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ciputra.pavmeals.R
 import com.ciputra.pavmeals.android.adapter.ResultAdapter
 import com.ciputra.pavmeals.api.ApiService
 import com.ciputra.pavmeals.api.MealsLayer1
 import com.ciputra.pavmeals.api.MealsLayer2
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_result.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class ResultActivity : AppCompatActivity() {
     var itemResponse: ArrayList<MealsLayer2> = arrayListOf()
@@ -40,12 +41,12 @@ class ResultActivity : AppCompatActivity() {
         if(strCtg != null) {
             Api.service<ApiService>()
                 .filterByCategory(category = strCtg)
-                .enqueue(object : Callback<MealsLayer1>{
+                .enqueue(object : Callback<MealsLayer1> {
                     override fun onResponse(
                         call: Call<MealsLayer1>,
                         response: Response<MealsLayer1>
                     ) {
-                        tv_titleResult.text = "Search result: "+strCtg
+                        tv_titleResult.text = "Search result: " + strCtg
                         itemResponse = response.body()!!.meals!!
                         showResponseRecycler()
                     }
