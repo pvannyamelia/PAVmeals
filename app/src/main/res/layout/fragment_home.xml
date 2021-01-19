@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 style="@style/tpg_h2"
                 android:text="@string/meal_of_the_day"/>
 
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 style="@style/tpg_h5"
-                android:layout_marginVertical="5dp"/>
+                android:layout_marginVertical="10dp"/>
             <TextView
                 android:id="@+id/tv_tag"
                 android:layout_width="match_parent"
@@ -79,7 +79,8 @@
                 android:gravity="center"
                 style="@style/link"
                 android:linksClickable="true"
-                android:autoLink="all"/>
+                android:autoLink="all"
+                android:layout_marginVertical="5dp"/>
             <TextView
                 android:id="@+id/tv_youtube"
                 android:layout_width="match_parent"
@@ -87,7 +88,48 @@
                 android:gravity="center"
                 style="@style/link"
                 android:linksClickable="true"
-                android:autoLink="all"/>
+                android:autoLink="all"
+                android:layout_marginVertical="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                style="@style/tpg_h5"
+                android:text="@string/ingredients"
+                android:layout_marginVertical="10dp"/>
+            <TextView
+                android:id="@+id/tv_ing1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                style="@style/paragraph"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginVertical="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_ing2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                style="@style/paragraph"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginVertical="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_ing3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                style="@style/paragraph"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginVertical="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/tpg_h5"
+                android:text="@string/cooking_instruction"
+                android:layout_marginVertical="10dp"/>
             <TextView
                 android:id="@+id/tv_instruction"
                 android:layout_width="match_parent"

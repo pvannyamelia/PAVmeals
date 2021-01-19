@@ -45,4 +45,9 @@ interface ApiService {
     fun getSearch(
         @Query("s") keyword: String?=""
     ): Call<MealsLayer1>
+
+    @GET("lookup.php")
+    fun getMealbyID(
+        @Query("i") id: String?=""
+    ):Call<MealsLayer1>
 }

@@ -1,9 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".android.DetailsActivity">
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="30dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_titlePick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/tpg_h2"
+                android:layout_marginVertical="25dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/iv_Thumb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="15dp"/>
+
+            <TextView
+                android:id="@+id/tv_origin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/tpg_h5"
+                android:layout_marginVertical="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_ctg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/tpg_h5"
+                android:layout_marginVertical="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/tag"
+                android:layout_marginVertical="5dp"/>
+            <TextView
+                android:id="@+id/tv_source"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/link"
+                android:linksClickable="true"
+                android:autoLink="all"
+                android:layout_marginVertical="5dp"/>
+            <TextView
+                android:id="@+id/tv_youtube"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/link"
+                android:linksClickable="true"
+                android:autoLink="all"
+                android:layout_marginVertical="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                style="@style/tpg_h5"
+                android:text="@string/ingredients"
+                android:layout_marginVertical="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_ing1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                style="@style/paragraph"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginVertical="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_ing2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                style="@style/paragraph"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginVertical="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_ing3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                style="@style/paragraph"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginVertical="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/tpg_h5"
+                android:text="@string/cooking_instruction"
+                android:layout_marginVertical="10dp"/>
+            <TextView
+                android:id="@+id/tv_instruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="fill_horizontal"
+                style="@style/paragraph"
+                android:paddingBottom="120dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

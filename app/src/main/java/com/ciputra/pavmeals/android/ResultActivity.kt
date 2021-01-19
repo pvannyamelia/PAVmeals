@@ -1,5 +1,6 @@
 package com.ciputra.pavmeals.android
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.inputmethod.EditorInfo
@@ -68,6 +69,38 @@ class ResultActivity : AppCompatActivity() {
                         Log.e("ERROR", t.message.orEmpty())
                     }
                 })
+        }else if (strIng != null){
+            Api.service<ApiService>()
+                .filterByIng(strIng)
+                .enqueue(object : Callback<MealsLayer1>{
+                    override fun onResponse(
+                        call: Call<MealsLayer1>,
+                        response: Response<MealsLayer1>
+                    ) {
+                        showResult(response, strIng)
+                    }
+
+                    override fun onFailure(call: Call<MealsLayer1>, t: Throwable) {
+                        Log.e("ERROR", t.message.orEmpty())
+                    }
+
+                })
+        }else if (strArea != null){
+            Api.service<ApiService>()
+                .filterByArea(strArea)
+                .enqueue(object : Callback<MealsLayer1>{
+                    override fun onResponse(
+                        call: Call<MealsLayer1>,
+                        response: Response<MealsLayer1>
+                    ) {
+                        showResult(response, strArea)
+                    }
+
+                    override fun onFailure(call: Call<MealsLayer1>, t: Throwable) {
+                        Log.e("ERROR", t.message.orEmpty())
+                    }
+
+                })
         }
     }
 
@@ -81,5 +114,14 @@ class ResultActivity : AppCompatActivity() {
         rv_result.layoutManager = LinearLayoutManager(this)
         val resultAdapter = ResultAdapter(itemResponse)
         rv_result.adapter = resultAdapter
+
+        //On Click Listener
+        resultAdapter.setOnItemClickCallback(object : ResultAdapter.OnItemClickCallback{
+            override fun onItemClicked(data: MealsLayer2) {
+                val moveIntent = Intent(this@ResultActivity, DetailsActivity::class.java)
+                moveIntent.putExtra(DetailsActivity.EXTRA_ID, data.idMeal)
+                startActivity(moveIntent)
+            }
+        })
     }
 }

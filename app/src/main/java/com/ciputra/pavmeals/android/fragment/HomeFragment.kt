@@ -44,12 +44,6 @@ class HomeFragment : Fragment() {
                 .into(iv_pickThumb)
     }
 
-    private fun showChosenCtg(ctg: CategoryLayer2){
-        val moveIntent = Intent(requireActivity(), ResultActivity::class.java)
-        moveIntent.putExtra(ResultActivity.EXTRA_CTG, ctg.strCategory)
-        startActivity(moveIntent)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         viewhome = inflater.inflate(R.layout.fragment_home, container, false)
@@ -71,6 +65,9 @@ class HomeFragment : Fragment() {
                     tv_instruction.text = randResponse.get(0).strInstructions
                     tv_source.text = "Source: "+randResponse.get(0).strSource
                     tv_youtube.text = "Youtube: "+randResponse.get(0).strYoutube
+                    tv_ing1.text = "- "+randResponse.get(0).strMeasure1+" "+randResponse.get(0).strIngredient1
+                    tv_ing2.text = "- "+randResponse.get(0).strMeasure2+" "+randResponse.get(0).strIngredient2
+                    tv_ing3.text = "- "+randResponse.get(0).strMeasure3+" "+randResponse.get(0).strIngredient3
                     showglide(randResponse.get(0).strMealThumb)
                 }
 
@@ -105,7 +102,9 @@ class HomeFragment : Fragment() {
         // On Click Listener
         categoryAdapter.setOnItemClickCallback(object : CategoryAdapter.OnItemClickCallback{
             override fun onItemClicked(data: CategoryLayer2) {
-                showChosenCtg(data)
+                val moveIntent = Intent(requireActivity(), ResultActivity::class.java)
+                moveIntent.putExtra(ResultActivity.EXTRA_CTG, data.strCategory)
+                startActivity(moveIntent)
             }
         })
     }

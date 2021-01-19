@@ -12,6 +12,12 @@ import com.ciputra.pavmeals.R
 import com.ciputra.pavmeals.api.MealsLayer2
 
 class ResultAdapter(private val listResult: ArrayList<MealsLayer2>) : RecyclerView.Adapter<ResultAdapter.ResultViewHolder>() {
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     class ResultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var iv_meal: ImageView = itemView.findViewById(R.id.iv_meal)
         var tv_meal: TextView = itemView.findViewById(R.id.tv_meal)
@@ -31,9 +37,16 @@ class ResultAdapter(private val listResult: ArrayList<MealsLayer2>) : RecyclerVi
                 .into(holder.iv_meal)
 
         holder.tv_meal.text = result.strMeal
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(listResult[holder.adapterPosition])
+        }
     }
 
     override fun getItemCount(): Int {
         return listResult?.size
+    }
+
+    interface OnItemClickCallback{
+        fun onItemClicked(data: MealsLayer2)
     }
 }

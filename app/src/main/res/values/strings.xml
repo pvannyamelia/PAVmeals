@@ -8,6 +8,8 @@
     <string name="meal_of_the_day">Meal of The Day</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="cooking_instruction">Cooking Instruction</string>
     Spannable
     -->
 

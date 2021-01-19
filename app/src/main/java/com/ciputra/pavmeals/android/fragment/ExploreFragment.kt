@@ -1,15 +1,14 @@
 package com.ciputra.pavmeals.android.fragment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.KeyEvent
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
-import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.ciputra.pavmeals.R
 import com.ciputra.pavmeals.android.Api
 import com.ciputra.pavmeals.android.ResultActivity
@@ -21,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_explore.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,12 +61,18 @@ class ExploreFragment : Fragment() {
             .enqueue(object : Callback<MealsLayer1> {
                 override fun onResponse(call: Call<MealsLayer1>, response: Response<MealsLayer1>) {
                     var areaResponse: ArrayList<MealsLayer2> = response.body()?.meals!!
-                    for(index in 0..areaResponse.size-1){
+                    for (index in 0..areaResponse.size - 1) {
                         val chip = Chip(cg_area.context)
                         chip.text = areaResponse.get(index).strArea
-
-                        // necessary to get single selection working
+                        chip.id = index
                         chip.isClickable = true
+                        chip.setOnClickListener(object : View.OnClickListener {
+                            override fun onClick(p0: View?) {
+                                val moveIntent = Intent(requireActivity(), ResultActivity::class.java)
+                                moveIntent.putExtra(ResultActivity.EXTRA_AREA, chip.text.toString())
+                                startActivity(moveIntent)
+                            }
+                        })
                         cg_area.addView(chip)
                     }
                 }
@@ -81,10 +87,18 @@ class ExploreFragment : Fragment() {
             .enqueue(object : Callback<MealsLayer1> {
                 override fun onResponse(call: Call<MealsLayer1>, response: Response<MealsLayer1>) {
                     var ingResponse: ArrayList<MealsLayer2> = response.body()?.meals!!
-                    for(index in 0..10){
+                    for (index in 0..10) {
                         val chip = Chip(cg_ingredient.context)
                         chip.text = ingResponse.get(index).strIngredient
+                        chip.id = index
                         chip.isClickable = true
+                        chip.setOnClickListener(object : View.OnClickListener {
+                            override fun onClick(p0: View?) {
+                                val moveIntent = Intent(requireActivity(), ResultActivity::class.java)
+                                moveIntent.putExtra(ResultActivity.EXTRA_ING, chip.text.toString())
+                                startActivity(moveIntent)
+                            }
+                        })
                         cg_ingredient.addView(chip)
                     }
                 }
@@ -102,7 +116,6 @@ class ExploreFragment : Fragment() {
                 startActivity(moveIntent)
             }
         })
-
     }
 
     companion object {
