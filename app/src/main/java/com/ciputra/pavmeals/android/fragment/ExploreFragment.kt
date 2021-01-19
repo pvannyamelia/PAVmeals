@@ -1,13 +1,18 @@
 package com.ciputra.pavmeals.android.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import com.ciputra.pavmeals.R
 import com.ciputra.pavmeals.android.Api
+import com.ciputra.pavmeals.android.ResultActivity
 import com.ciputra.pavmeals.api.ApiService
 import com.ciputra.pavmeals.api.MealsLayer1
 import com.ciputra.pavmeals.api.MealsLayer2
@@ -38,6 +43,18 @@ class ExploreFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_explore, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         Api.service<ApiService>()
             .getAreaList()
@@ -77,18 +94,14 @@ class ExploreFragment : Fragment() {
                 }
 
             })
-    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_explore, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        bt_search.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                val moveIntent = Intent(requireActivity(), ResultActivity::class.java)
+                moveIntent.putExtra(ResultActivity.EXTRA_QUERY, et_search.text.toString())
+                startActivity(moveIntent)
+            }
+        })
 
     }
 

@@ -43,7 +43,9 @@ class CategoryAdapter(private val listCategory: ArrayList<CategoryLayer2>) : Rec
             .into(holder.iv_cat)
 
         holder.tv_cat.text = category.strCategory
-        holder.itemView.setOnClickListener{onItemClickCallback.onItemClicked(listCategory[holder.adapterPosition])}
+        holder.itemView.setOnClickListener{
+            onItemClickCallback.onItemClicked(listCategory[holder.adapterPosition])
+        }
     }
 
     override fun getItemCount(): Int {

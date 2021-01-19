@@ -46,9 +46,22 @@ class ResultActivity : AppCompatActivity() {
                         call: Call<MealsLayer1>,
                         response: Response<MealsLayer1>
                     ) {
-                        tv_titleResult.text = "Search result: " + strCtg
-                        itemResponse = response.body()!!.meals!!
-                        showResponseRecycler()
+                        showResult(response, strCtg)
+                    }
+
+                    override fun onFailure(call: Call<MealsLayer1>, t: Throwable) {
+                        Log.e("ERROR", t.message.orEmpty())
+                    }
+                })
+        }else if (strQuery != null){
+            Api.service<ApiService>()
+                .getSearch(strQuery)
+                .enqueue(object : Callback<MealsLayer1>{
+                    override fun onResponse(
+                        call: Call<MealsLayer1>,
+                        response: Response<MealsLayer1>
+                    ) {
+                        showResult(response, strQuery)
                     }
 
                     override fun onFailure(call: Call<MealsLayer1>, t: Throwable) {
@@ -56,6 +69,12 @@ class ResultActivity : AppCompatActivity() {
                     }
                 })
         }
+    }
+
+    private fun showResult(response: Response<MealsLayer1>, str: String) {
+        tv_titleResult.text = "Search result: " + str
+        itemResponse = response.body()!!.meals!!
+        showResponseRecycler()
     }
 
     private fun showResponseRecycler() {
