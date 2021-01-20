@@ -48,4 +48,9 @@
         <item name="android:textColorLink">@color/dark_red</item>
         <item name="fontFamily">@font/opensans_italic</item>
     </style>
+    <style name="intent">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/deep_green</item>
+        <item name="fontFamily">@font/opensans_light</item>
+    </style>
 </resources>

@@ -3,6 +3,7 @@ package com.ciputra.pavmeals.android
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.bumptech.glide.Glide
 import com.ciputra.pavmeals.R
 import com.ciputra.pavmeals.api.ApiService
@@ -15,20 +16,6 @@ import retrofit2.Response
 
 class DetailsActivity : AppCompatActivity() {
     companion object{
-//        const val EXTRA_TITLE = "extra_title"
-//        const val EXTRA_CTG = "extra_ctg"
-//        const val EXTRA_AREA = "extra_area"
-//        const val EXTRA_INS = "extra_ins"
-//        const val EXTRA_THUMB = "extra_thumb"
-//        const val EXTRA_TAG = "extra_tag"
-//        const val EXTRA_SRC = "extra_src"
-//        const val EXTRA_YTB = "extra_ytb"
-//        const val EXTRA_ING1 = "extra_ing1"
-//        const val EXTRA_ING2 = "extra_ing2"
-//        const val EXTRA_ING3 = "extra_ing3"
-//        const val EXTRA_MS1 = "extra_ms1"
-//        const val EXTRA_MS2 = "extra_ms2"
-//        const val EXTRA_MS3 = "extra_ms3"
         const val EXTRA_ID = "id"
     }
 

@@ -10,6 +10,17 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ingredients">Ingredients</string>
     <string name="cooking_instruction">Cooking Instruction</string>
+    <string name="e_mail">E-mail</string>
+    <string name="welcome_login">Good day! Please log in.</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="suphere">Didn\'t have any account? <i><u>Sign up here</u></i>.</string>
+    <string name="lin">Already have an account? <i><u>Log in here</u></i>.</string>
+    <string name="welcome_sup">Welcome to PAV Meals!</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="fullname">Fullname</string>
+    <string name="username">Username</string>
+    <string name="log_out">Log Out</string>
     Spannable
     -->
 

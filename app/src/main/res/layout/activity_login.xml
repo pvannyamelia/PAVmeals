@@ -4,55 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".android.LoginActivity"
-
-    >
-
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="80dp"
-        android:paddingTop="10dp"
-        android:text="Name" />
+    tools:context=".android.LoginActivity">
 
     <TextView
-        android:id="@+id/tvresult"
+        android:id="@+id/tv_title"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:background="#fff"
-        android:gravity="bottom"
-        android:maxLines="1"
-        android:padding="10dp"
-        android:text=""
-        android:textAlignment="viewEnd"
-        android:textColor="#000"
-        android:textSize="50sp"
-        tools:ignore="RtlCompat">
+        android:layout_height="wrap_content"
+        style="@style/tpg_h3"
+        android:textAlignment="center"
+        android:layout_marginTop="80dp"
+        android:text="@string/welcome_login"/>
+    <TextView
+        android:id="@+id/tv_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/intent"
+        android:textAlignment="center"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/suphere"/>
 
-    </TextView>
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/tpg_h5"
+        android:layout_below="@id/tv_signup"
+        android:layout_marginHorizontal="50dp"
+        android:text="@string/username"/>
 
     <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
+        android:id="@+id/et_email"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
-        android:layout_alignStart="@id/editTextTextPersonName"
-        android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPersonName"
+        android:paddingTop="10dp"
+        android:layout_marginVertical="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_email"
+        android:hint="mail@email.com" />
+    <TextView
+        android:id="@+id/tv_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/tpg_h5"
+        android:layout_below="@id/et_email"
+        android:layout_marginHorizontal="50dp"
+        android:text="@string/password"/>
+    <EditText
+        android:id="@+id/et_pwd"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_pwd"
+        android:inputType="textPassword"
+        android:paddingTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="10dp"
+        android:hint="Password"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bt_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:layout_alignStart="@id/editTextTextPersonName"
-        android:text="Button" />
+        android:layout_below="@id/et_pwd"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/log_in"
+        android:elevation="5dp"
+        android:background="@drawable/search"/>
 
 
 </RelativeLayout>

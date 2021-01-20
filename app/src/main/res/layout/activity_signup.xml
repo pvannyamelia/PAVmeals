@@ -4,81 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".android.SignupActivity"
-    >
-
+    tools:context=".android.SignupActivity">
 
     <TextView
-        android:id="@+id/tv_signup"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign up"
+        style="@style/tpg_h3"
+        android:textAlignment="center"
+        android:layout_marginTop="50dp"
+        android:text="@string/welcome_sup"/>
+    <TextView
+        android:id="@+id/tv_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/intent"
+        android:textAlignment="center"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/lin"/>
 
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/tpg_h5"
+        android:layout_below="@id/tv_login"
+        android:layout_marginHorizontal="50dp"
+        android:text="@string/e_mail"/>
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:paddingTop="10dp"
+        android:layout_marginVertical="10dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_below="@id/tv_email"
+        android:hint="mail@email.com" />
+    <TextView
+        android:id="@+id/tv_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/tpg_h5"
+        android:layout_below="@id/et_email"
+        android:layout_marginHorizontal="50dp"
+        android:text="@string/password"/>
+    <EditText
+        android:id="@+id/et_pwd"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_pwd"
+        android:inputType="textPassword"
+        android:paddingTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="10dp"
+        android:hint="Password"/>
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/tpg_h5"
+        android:layout_below="@id/et_pwd"
+        android:layout_marginHorizontal="50dp"
+        android:text="@string/fullname"/>
 
-        android:textSize="30dp"
-        />
     <EditText
         android:id="@+id/et_name"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:paddingTop="10dp"
+        android:layout_marginVertical="10dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        />
-    <EditText
-        android:id="@+id/et_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Username"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp"
-        />
-
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"
-        />
-    <EditText
-        android:id="@+id/et_password2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Re-type password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="350dp"
-        />
-
+        android:layout_below="@id/tv_name"
+        android:hint="Fullname" />
     <Button
-        android:id="@+id/btn_signup"
+        android:id="@+id/bt_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:layout_marginTop="450dp"
+        android:layout_below="@id/et_name"
         android:layout_centerHorizontal="true"
-
-        />
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:layout_marginTop="550dp"
-        android:layout_centerHorizontal="true"
-
-        />
+        android:layout_marginTop="10dp"
+        android:text="@string/sign_up"
+        android:elevation="5dp"
+        android:background="@drawable/search"/>
 
 
 </RelativeLayout>

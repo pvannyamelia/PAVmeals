@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.ciputra.pavmeals.R
 import com.ciputra.pavmeals.android.Api
 import com.ciputra.pavmeals.android.ResultActivity
+import com.ciputra.pavmeals.android.SafeClickListener
 import com.ciputra.pavmeals.api.ApiService
 import com.ciputra.pavmeals.api.MealsLayer1
 import com.ciputra.pavmeals.api.MealsLayer2
@@ -21,28 +22,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ExploreFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ExploreFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -66,13 +49,11 @@ class ExploreFragment : Fragment() {
                         chip.text = areaResponse.get(index).strArea
                         chip.id = index
                         chip.isClickable = true
-                        chip.setOnClickListener(object : View.OnClickListener {
-                            override fun onClick(p0: View?) {
+                        chip.setSafeOnClickListener{
                                 val moveIntent = Intent(requireActivity(), ResultActivity::class.java)
                                 moveIntent.putExtra(ResultActivity.EXTRA_AREA, chip.text.toString())
                                 startActivity(moveIntent)
-                            }
-                        })
+                        }
                         cg_area.addView(chip)
                     }
                 }
@@ -92,13 +73,11 @@ class ExploreFragment : Fragment() {
                         chip.text = ingResponse.get(index).strIngredient
                         chip.id = index
                         chip.isClickable = true
-                        chip.setOnClickListener(object : View.OnClickListener {
-                            override fun onClick(p0: View?) {
+                        chip.setSafeOnClickListener{
                                 val moveIntent = Intent(requireActivity(), ResultActivity::class.java)
                                 moveIntent.putExtra(ResultActivity.EXTRA_ING, chip.text.toString())
                                 startActivity(moveIntent)
-                            }
-                        })
+                        }
                         cg_ingredient.addView(chip)
                     }
                 }
@@ -109,32 +88,17 @@ class ExploreFragment : Fragment() {
 
             })
 
-        bt_search.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
+        bt_search.setSafeOnClickListener {
                 val moveIntent = Intent(requireActivity(), ResultActivity::class.java)
                 moveIntent.putExtra(ResultActivity.EXTRA_QUERY, et_search.text.toString())
                 startActivity(moveIntent)
-            }
-        })
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ExploreFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ExploreFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    fun View.setSafeOnClickListener(onSafeClick: (View) -> Unit) {
+        val safeClickListener = SafeClickListener {
+            onSafeClick(it)
+        }
+        setOnClickListener(safeClickListener)
     }
 }

@@ -6,25 +6,21 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/thumbnail_pavmeals"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/thumbnail_pavmeals"
         android:supportsRtl="true"
         android:theme="@style/Theme.PAVmeals">
-        <activity android:name=".android.NavHost"></activity>
         <activity android:name=".android.DetailsActivity" />
-        <activity android:name=".android.ProfileActivity" />
-        <activity android:name=".android.ExploreActivity" />
         <activity android:name=".android.ResultActivity" />
-        <activity android:name=".android.MainActivity">
+        <activity android:name=".android.MainActivity"/>
+        <activity android:name=".android.SignupActivity" />
+        <activity android:name=".android.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".android.SignupActivity" />
-        <activity android:name=".android.LoginActivity" />
     </application>
 
 </manifest>

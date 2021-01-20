@@ -26,6 +26,8 @@ import com.ciputra.pavmeals.api.CategoryLayer2
 import com.ciputra.pavmeals.api.MealsLayer1
 import com.ciputra.pavmeals.api.MealsLayer2
 import com.google.android.material.chip.Chip
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -39,7 +41,6 @@ class MainActivity : FragmentActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         viewPager = findViewById(R.id.viewPager2)
         viewPagerAdapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
         viewPagerAdapter.addFragment(HomeFragment())
@@ -57,25 +58,5 @@ class MainActivity : FragmentActivity(){
             }
             false
         }
-
-//        val homeFragment = HomeFragment()
-//        val exploreFragment = ExploreFragment()
-//        val profileFragment = ProfileFragment()
-//        makeCurrentFragment(homeFragment)
-//        bottom_nav.setOnNavigationItemSelectedListener {
-//            when(it.itemId){
-//                R.id.ic_home -> makeCurrentFragment(homeFragment)
-//                R.id.ic_explore ->makeCurrentFragment(exploreFragment)
-//                R.id.ic_profile -> makeCurrentFragment(profileFragment)
-//            }
-//            true
-//        }
     }
-
-//    private fun makeCurrentFragment(fragment: Fragment) {
-//        supportFragmentManager.beginTransaction().apply{
-//            replace(R.id.fl_wrapper, fragment)
-//            commit()
-//        }
-//    }
 }

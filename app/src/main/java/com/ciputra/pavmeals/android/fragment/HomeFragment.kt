@@ -1,5 +1,6 @@
 package com.ciputra.pavmeals.android.fragment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ciputra.pavmeals.R
@@ -19,16 +21,16 @@ import com.bumptech.glide.Glide
 import com.ciputra.pavmeals.android.ResultActivity
 import com.ciputra.pavmeals.android.adapter.CategoryAdapter
 import com.ciputra.pavmeals.api.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class HomeFragment : Fragment() {
     var catResponse: ArrayList<CategoryLayer2> = arrayListOf()
     lateinit var viewhome: View
+    lateinit var auth: FirebaseAuth
+    var databaseReference: DatabaseReference? = null
+    var database: FirebaseDatabase? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +56,13 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?){
         super.onViewCreated(itemView, savedInstanceState)
+
+        auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
+        databaseReference = database?.reference!!.child("profile")
+
+        loadProfile()
+
         Api.service<ApiService>()
             .getRandomMeals()
             .enqueue(object : Callback<MealsLayer1> {
@@ -94,6 +103,22 @@ class HomeFragment : Fragment() {
             LinearLayoutManager.HORIZONTAL,
             false
         )
+    }
+
+    private fun loadProfile(){
+        val user = auth.currentUser
+        val userReference = databaseReference?.child(user?.uid!!)
+
+        userReference?.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                tv_greetings.text = "Hello, "+snapshot.child("fullname").value.toString()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(context, "Database error, please try again.", Toast.LENGTH_LONG).show()
+            }
+
+        })
     }
 
     private fun showCategoryRecycler(){
