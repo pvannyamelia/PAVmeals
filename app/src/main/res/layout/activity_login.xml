@@ -32,7 +32,7 @@
         style="@style/tpg_h5"
         android:layout_below="@id/tv_signup"
         android:layout_marginHorizontal="50dp"
-        android:text="@string/username"/>
+        android:text="@string/e_mail"/>
 
     <EditText
         android:id="@+id/et_email"
