@@ -65,7 +65,6 @@ class ProfileFragment : Fragment() {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             this.requireActivity().supportFragmentManager.popBackStack()
             startActivity(intent)
-            this.requireActivity().supportFragmentManager.popBackStack()
 
         }
     }
